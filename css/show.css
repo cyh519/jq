@@ -1,0 +1,55 @@
+/* show.css - 页面特定样式和组件样式 */
+
+/* 导航栏样式 */
+#navbar {
+  @apply transition-all duration-300;
+}
+
+/* 轮播图样式 */
+.carousel-item {
+  @apply transition-opacity duration-1000 ease-in-out;
+}
+
+.carousel-dot.active {
+  @apply bg-white w-6 rounded-full transition-all duration-300;
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* 响应式文本 */
+.text-responsive {
+  @apply text-[clamp(1rem,2vw,1.25rem)];
+}
+
+.heading-responsive {
+  @apply text-[clamp(1.5rem,3vw,2.5rem)];
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
+}
+
+/* 自定义组件样式 */
+.feature-card {
+  @apply bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300;
+}
+
+.news-card {
+  @apply bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300;
+}
+
+/* 动画效果 */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}    

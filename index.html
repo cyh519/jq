@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>软件工程学院</title>
+  <!-- 引入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 引入自定义样式 -->
+  <link href="jxjyStyle.css" rel="stylesheet">
+  <link href="show.css" rel="stylesheet">
+</head>
+<body class="font-sans text-dark bg-white">
+  <!-- 顶部导航栏 -->
+  <header class="sticky top-0 z-50 bg-white shadow-md transition-all duration-300" id="navbar">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="#" class="flex items-center">
+            <img src="https://picsum.photos/40/40" alt="学院Logo" class="h-10 w-10 rounded-full">
+            <span class="ml-2 text-xl font-bold text-primary">软件工程学院</span>
+          </a>
+        </div>
+
+        <!-- 导航菜单 - 桌面端 -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="#" class="text-primary font-medium hover:text-primary/80 transition-colors">首页</a>
+          <div class="relative group">
+            <a href="#" class="text-dark font-medium hover:text-primary transition-colors flex items-center">
+              学院概况
+              <i class="fa fa-chevron-down ml-1 text-xs"></i>
+            </a>
+            <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right">
+              <div class="py-1">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">党政领导</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">组织机构</a>
+              </div>
+            </div>
+          </div>
+          <div class="relative group">
+            <a href="#" class="text-dark font-medium hover:text-primary transition-colors flex items-center">
+              信息公开
+              <i class="fa fa-chevron-down ml-1 text-xs"></i>
+            </a>
+            <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right">
+              <div class="py-1">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">最新动态</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">通知公告</a>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="text-dark font-medium hover:text-primary transition-colors">教学管理</a>
+          <a href="#" class="text-dark font-medium hover:text-primary transition-colors">学生管理</a>
+          <a href="#" class="text-dark font-medium hover:text-primary transition-colors">招生就业</a>
+          <a href="#" class="text-dark font-medium hover:text-primary transition-colors">师资队伍</a>
+          <a href="#" class="text-dark font-medium hover:text-primary transition-colors">党建工作</a>
+          <a href="#" class="text-dark font-medium hover:text-primary transition-colors">团学之窗</a>
+        </nav>
+
+        <!-- 搜索框和移动端菜单按钮 -->
+        <div class="flex items-center">
+          <div class="relative mr-4 hidden md:block">
+            <input type="text" placeholder="搜索..." class="pl-10 pr-4 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/30 w-48 transition-all duration-300 focus:w-64">
+            <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          </div>
+          <button class="md:hidden text-dark hover:text-primary transition-colors" id="mobile-menu-button">
+            <i class="fa fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 移动端菜单 -->
+    <div class="md:hidden hidden bg-white shadow-lg absolute w-full" id="mobile-menu">
+      <div class="px-4 pt-2 pb-4 space-y-3">
+        <div class="relative">
+          <input type="text" placeholder="搜索..." class="w-full pl-10 pr-4 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/30">
+          <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+        <a href="#" class="block py-2 text-primary font-medium">首页</a>
+        <div class="mobile-dropdown">
+          <button class="w-full flex justify-between items-center py-2 text-dark font-medium">
+            学院概况
+            <i class="fa fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-submenu hidden pl-4 py-2 space-y-2">
+            <a href="#" class="block py-1 text-gray-700">党政领导</a>
+            <a href="#" class="block py-1 text-gray-700">组织机构</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <button class="w-full flex justify-between items-center py-2 text-dark font-medium">
+            信息公开
+            <i class="fa fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-submenu hidden pl-4 py-2 space-y-2">
+            <a href="#" class="block py-1 text-gray-700">最新动态</a>
+            <a href="#" class="block py-1 text-gray-700">通知公告</a>
+          </div>
+        </div>
+        <a href="#" class="block py-2 text-dark font-medium">教学管理</a>
+        <a href="#" class="block py-2 text-dark font-medium">学生管理</a>
+        <a href="#" class="block py-2 text-dark font-medium">招生就业</a>
+        <a href="#" class="block py-2 text-dark font-medium">师资队伍</a>
+        <a href="#" class="block py-2 text-dark font-medium">党建工作</a>
+        <a href="#" class="block py-2 text-dark font-medium">团学之窗</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主横幅轮播 -->
+  <section class="relative h-[500px] bg-gray-200 overflow-hidden">
+    <div class="carousel relative h-full" id="main-carousel">
+      <div class="carousel-items h-full">
+        <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+          <img src="https://picsum.photos/1600/900?random=1" alt="学院活动" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary/70 to-transparent flex items-center">
+            <div class="container mx-auto px-6 md:px-12">
+              <div class="max-w-2xl">
+                <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight mb-4 text-shadow">
+                  软件工程学院2023届毕业典礼
+                </h2>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 mb-8 max-w-xl">
+                  6月15日，我院隆重举行2023届毕业生毕业典礼，300余名毕业生顺利完成学业踏上新征程
+                </p>
+                <a href="#" class="btn-primary">
+                  查看详情
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+          <img src="https://picsum.photos/1600/900?random=2" alt="学术交流" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-r from-secondary/70 to-transparent flex items-center">
+            <div class="container mx-auto px-6 md:px-12">
+              <div class="max-w-2xl">
+                <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight mb-4 text-shadow">
+                  人工智能前沿技术研讨会
+                </h2>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 mb-8 max-w-xl">
+                  我院成功举办人工智能前沿技术研讨会，邀请行业专家分享最新研究成果与应用案例
+                </p>
+                <a href="#" class="btn-secondary">
+                  查看详情
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+          <img src="https://picsum.photos/1600/900?random=3" alt="校企合作" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary/70 to-transparent flex items-center">
+            <div class="container mx-auto px-6 md:px-12">
+              <div class="max-w-2xl">
+                <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight mb-4 text-shadow">
+                  与科大讯飞达成战略合作
+                </h2>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 mb-8 max-w-xl">
+                  我院与科大讯飞签署战略合作协议，共建人工智能联合实验室，深化产学研用融合
+                </p>
+                <a href="#" class="btn-primary">
+                  查看详情
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/50 transition-colors" id="prev-slide">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <button class="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/50 transition-colors" id="next-slide">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+      <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <button class="w-3 h-3 rounded-full bg-white/50 carousel-dot active" data-index="0"></button>
+        <button class="w-3 h-3 rounded-full bg-white/50 carousel-dot" data-index="1"></button>
+        <button class="w-3 h-3 rounded-full bg-white/50 carousel-dot" data-index="2"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 学院概览 -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="heading-responsive font-bold text-dark mb-4">学院概览</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">软件工程学院成立于2002年，是安徽电子信息职业技术学院重点建设的二级学院，现有在校学生2000余人</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="feature-card">
+          <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fa fa-graduation-cap text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">师资力量</h3>
+          <p class="text-gray-600 mb-4">学院现有教职工85人，其中教授8人，副教授25人，具有博士学位教师20人，双师素质教师占比80%</p>
+          <a href="#" class="text-primary font-medium inline-flex items-center">
+            了解更多 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+          </a>
+        </div>
+
+        <div class="feature-card">
+          <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fa fa-book text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">专业设置</h3>
+          <p class="text-gray-600 mb-4">学院设有软件工程、数据科学与大数据技术、人工智能、网络工程四个本科专业，其中软件工程为国家级一流专业建设点</p>
+          <a href="#" class="text-primary font-medium inline-flex items-center">
+            了解更多 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+          </a>
+        </div>
+
+        <div class="feature-card">
+          <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fa fa-building text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">教学设施</h3>
+          <p class="text-gray-600 mb-4">学院拥有国家级实验教学示范中心、省级重点实验室、校企联合实验室等教学科研平台，实验设备总值超过5000万元</p>
+          <a href="#" class="text-primary font-medium inline-flex items-center">
+            了解更多 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最新动态 -->
+  <section class="py-16 bg-neutral">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+        <div>
+          <h2 class="heading-responsive font-bold text-dark mb-4">最新动态</h2>
+          <p class="text-gray-600 max-w-2xl">了解学院最新资讯、活动预告和学术动态</p>
+        </div>
+        <a href="#" class="mt-4 md:mt-0 inline-flex items-center text-primary font-medium hover:underline">
+          查看全部 <i class="fa fa-angle-right ml-2"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <article class="news-card">
+          <img src="https://picsum.photos/600/400?random=4" alt="学术讲座" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center text-gray-500 text-sm mb-3">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>2023-08-15</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2">清华大学人工智能研究所所长来我院讲学</h3>
+            <p class="text-gray-600 mb-4 line-clamp-3">8月15日，清华大学人工智能研究所所长张明教授应邀来我院作题为"大模型时代的人工智能发展趋势"的学术报告...</p>
+            <a href="#" class="text-primary font-medium inline-flex items-center">
+              阅读全文 <i class="fa fa-angle-right ml-2"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <img src="https://picsum.photos/600/400?random=5" alt="学生活动" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center text-gray-500 text-sm mb-3">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>2023-08-10</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2">我院学生在全国大学生软件设计大赛中获佳绩</h3>
+            <p class="text-gray-600 mb-4 line-clamp-3">在2023年全国大学生软件设计大赛中，我院学生团队经过激烈角逐，荣获国家级一等奖1项、二等奖2项、三等奖3项...</p>
+            <a href="#" class="text-primary font-medium inline-flex items-center">
+              阅读全文 <i class="fa fa-angle-right ml-2"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <img src="https://picsum.photos/600/400?random=6" alt="校企合作" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center text-gray-500 text-sm mb-3">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>2023-08-05</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2">我院与华为技术有限公司签署合作协议</h3>
+            <p class="text-gray-600 mb-4 line-clamp-3">8月5日，我院与华为技术有限公司正式签署合作协议，双方将在人才培养、课程开发、实训基地建设等方面展开深度合作...</p>
+            <a href="#" class="text-primary font-medium inline-flex items-center">
+              阅读全文 <i class="fa fa-angle-right ml-2"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 教学与学生管理 -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- 教学管理 -->
+        <div>
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+              <i class="fa fa-book text-xl text-primary"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-dark">教学管理</h2>
+          </div>
+          
+          <div class="space-y-6">
+            <div class="bg-neutral rounded-lg p-5 hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-semibold mb-2 flex items-center">
+                <i class="fa fa-circle text-xs text-primary mr-2"></i>
+                讯飞学院召开2021级企业项目实训教学研讨会
+              </h3>
+              <p class="text-gray-600 text-sm">为提高人才培养质量，深化产教融合，学院召开企业项目实训教学研讨会，探讨教学模式创新...</p>
+              <div class="flex justify-between items-center mt-3">
+                <span class="text-gray-500 text-xs">2023-05-17</span>
+                <a href="#" class="text-primary text-sm">查看详情</a>
+              </div>
+            </div>
+            
+            <div class="bg-neutral rounded-lg p-5 hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-semibold mb-2 flex items-center">
+                <i class="fa fa-circle text-xs text-primary mr-2"></i>
+                软件工程学院顺利开展"N+"教学创新课观摩活动
+              </h3>
+              <p class="text-gray-600 text-sm">为推动课堂教学改革，提高教学质量，学院组织开展教学创新课观摩活动，促进教师间的交流与学习...</p>
+              <div class="flex justify-between items-center mt-3">
+                <span class="text-gray-500 text-xs">2023-04-28</span>
+                <a href="#" class="text-primary text-sm">查看详情</a>
+              </div>
+            </div>
+            
+            <div class="bg-neutral rounded-lg p-5 hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-semibold mb-2 flex items-center">
+                <i class="fa fa-circle text-xs text-primary mr-2"></i>
+                关于2023年度校级教学成果奖申报工作的通知
+              </h3>
+              <p class="text-gray-600 text-sm">为鼓励广大教师积极开展教学研究与改革，提高教学质量和人才培养水平，现启动2023年度校级教学成果奖申报工作...</p>
+              <div class="flex justify-between items-center mt-3">
+                <span class="text-gray-500 text-xs">2023-04-15</span>
+                <a href="#" class="text-primary text-sm">查看详情</a>
+              </div>
+            </div>
+            
+            <div class="bg-neutral rounded-lg p-5 hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-semibold mb-2 flex items-center">
+                <i class="fa fa-circle text-xs text-primary mr-2"></i>
+                我院教师在省级教学竞赛中获佳绩
+              </h3>
+              <p class="text-gray-600 text-sm">在2023年安徽省高校教师教学竞赛中，我院青年教师李华荣获工科组一等奖，王芳荣获文科组二等奖...</p>
+              <div class="flex justify-between items-center mt-3">
+                <span class="text-gray-500 text-xs">2023-03-22</span>
+                <a href="#" class="text-primary text-sm">查看详情</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-6 text-right">
+            <a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+              更多教学资讯 <i class="fa fa-angle-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 学生管理 -->
+        <div>
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mr-4">
+              <i class="fa fa-users text-xl text-secondary"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-dark">学生管理</h2>
+          </div>
+          
+          <div class="space-y-6">
+            <div class="bg-neutral rounded-lg p-5 hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-semibold mb-2 flex items-center">
+                <i class="fa fa-circle text-xs text-secondary mr-2"></i>
+                软件工程学院举办2023届毕业生就业经验分享会
+              </h3>
+              <p class="text-gray-600 text-sm">为帮助在校学生了解就业形势，提前做好职业规划，学院举办毕业生就业经验分享会，邀请优秀毕业生分享求职经验...</p>
+              <div class="flex justify-between items-center mt-3">
+                <span class="text-gray-500 text-xs">2023-06-20</span>
+                <a href="#" class="text-secondary text-sm">查看详情</a>
+              </div>
+            </div>
+            
+            <div class="bg-neutral rounded-lg p-5 hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-semibold mb-2 flex items-center">
+                <i class="fa fa-circle text-xs text-secondary mr-2"></i>
+                关于开展2023年度"明大讯飞奖学金"评选工作的通知
+              </h3>
+              <p class="text-gray-600 text-sm">为激励我院学生勤奋学习、努力进取，促进学生德智体美劳全面发展，现开展2023年度"明大讯飞奖学金"评选工作...</p>
+              <div class="flex justify-between items-center mt-3">
+                <span class="text-gray-500 text-xs">2023-06-10</span>
+                <a href="#" class="text-secondary text-sm">查看详情</a>
+              </div>
+            </div>
+            
+            <div class="bg-neutral rounded-lg p-5 hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-semibold mb-2 flex items-center">
+                <i class="fa fa-circle text-xs text-secondary mr-2"></i>
+                我院学子在全国大学生数学建模竞赛中获佳绩
+              </h3>
+              <p class="text-gray-600 text-sm">在2023年全国大学生数学建模竞赛中，我院学生团队荣获国家级二等奖1项，省级一等奖2项、二等奖3项...</p>
+              <div class="flex justify-between items-center mt-3">
+                <span class="text-gray-500 text-xs">2023-05-28</span>
+                <a href="#" class="text-secondary text-sm">查看详情</a>
+              </div>
+            </div>
+            
+            <div class="bg-neutral rounded-lg p-5 hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-semibold mb-2 flex items-center">
+                <i class="fa fa-circle text-xs text-secondary mr-2"></i>
+                软件工程学院开展2023年心理健康教育系列活动
+              </h3>
+              <p class="text-gray-600 text-sm">为进一步加强学生心理健康教育，提高学生心理素质，学院开展心理健康主题班会、心理讲座、心理剧表演等系列活动...</p>
+              <div class="flex justify-between items-center mt-3">
+                <span class="text-gray-500 text-xs">2023-05-10</span>
+                <a href="#" class="text-secondary text-sm">查看详情</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-6 text-right">
+            <a href="#" class="inline-flex items-center text-secondary font-medium hover:underline">
+              更多学生活动 <i class="fa fa-angle-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 专业介绍 -->
+  <section class="py-16 bg-primary/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="heading-responsive font-bold text-dark mb-4">专业介绍</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">我院开设多个本科专业，涵盖软件工程、数据科学与大数据技术、人工智能等热门领域</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="#" class="feature-card">
+          <div class="h-40 bg-primary/10 flex items-center justify-center">
+            <i class="fa fa-code text-6xl text-primary"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">软件工程</h3>
+            <p class="text-gray-600 mb-4">国家级一流专业建设点，培养具有扎实软件工程理论基础和较强软件开发实践能力的高素质人才。</p>
+            <div class="text-primary font-medium inline-flex items-center">
+              了解详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="feature-card">
+          <div class="h-40 bg-secondary/10 flex items-center justify-center">
+            <i class="fa fa-database text-6xl text-secondary"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">数据科学与大数据技术</h3>
+            <p class="text-gray-600 mb-4">培养掌握数据科学的基础知识、理论及技术，能熟练运用大数据分析工具解决实际问题的复合型人才。</p>
+            <div class="text-secondary font-medium inline-flex items-center">
+              了解详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="feature-card">
+          <div class="h-40 bg-green-500/10 flex items-center justify-center">
+            <i class="fa fa-brain text-6xl text-green-500"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">人工智能</h3>
+            <p class="text-gray-600 mb-4">培养掌握人工智能理论与技术，具备人工智能系统设计与开发能力，能从事人工智能及相关领域研究与应用的高级人才。</p>
+            <div class="text-green-500 font-medium inline-flex items-center">
+              了解详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="feature-card">
+          <div class="h-40 bg-purple-500/10 flex items-center justify-center">
+            <i class="fa fa-server text-6xl text-purple-500"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">网络工程</h3>
+            <p class="text-gray-600 mb-4">培养掌握网络工程的基本理论与技术，具备网络系统设计、开发、部署与维护能力的高素质网络工程技术人才。</p>
+            <div class="text-purple-500 font-medium inline-flex items-center">
+              了解详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center mb-6">
+            <img src="https://picsum.photos/40/40" alt="学院Logo" class="h-10 w-10 rounded-full">
+            <span class="ml-2 text-xl font-bold">软件工程学院</span>
+          </div>
+          <p class="text-gray-400 mb-6">
+            学院地址：安徽省蚌埠市曹山路1000号<br>
+            办公电话：0552-3177878<br>
+            电子邮箱：soft@ahiei.edu.cn
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-weibo text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-wechat text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-qq text-xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold mb-4">快速链接</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">学院首页</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">师资队伍</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">教学科研</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">招生就业</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">学生工作</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">党建工作</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold mb-4">联系我们</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fa fa-map-marker text-gray-400 mt-1 mr-3"></i>
+              <span class="text-gray-400">安徽省蚌埠市曹山路1000号</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-phone text-gray-400 mt-1 mr-3"></i>
+              <span class="text-gray-400">0552-3177878</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-envelope text-gray-400 mt-1 mr-3"></i>
+              <span class="text-gray-400">soft@ahiei.edu.cn</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold mb-4">友情链接</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">安徽省教育厅</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">安徽电子信息职业技术学院</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">科大讯飞股份有限公司</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">华为技术有限公司</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">腾讯科技有限公司</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
+        <p>© 2023 安徽电子信息职业技术学院软件工程学院版权所有</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+    <i class="fa fa-chevron-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-lg');
+        navbar.classList.add('bg-white/95');
+        navbar.classList.add('backdrop-blur-sm');
+      } else {
+        navbar.classList.remove('shadow-lg');
+        navbar.classList.remove('bg-white/95');
+        navbar.classList.remove('backdrop-blur-sm');
+      }
+    });
+
+    // 移动端菜单
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // 移动端下拉菜单
+    const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+    mobileDropdowns.forEach(dropdown => {
+      const button = dropdown.querySelector('button');
+      const submenu = dropdown.querySelector('.mobile-submenu');
+      button.addEventListener('click', () => {
+        submenu.classList.toggle('hidden');
+        const icon = button.querySelector('i');
+        if (submenu.classList.contains('hidden')) {
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        } else {
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        }
+      });
+    });
+
+    // 轮播图
+    const carousel = document.getElementById('main-carousel');
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const prevButton = document.getElementById('prev-slide');
+    const nextButton = document.getElementById('next-slide');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+      carouselItems.forEach(item => {
+        item.classList.remove('opacity-100');
+        item.classList.add('opacity-0');
+      });
+      dots.forEach(dot => {
+        dot.classList.remove('active');
+        dot.classList.add('bg-white/50');
+      });
+      
+      carouselItems[index].classList.remove('opacity-0');
+      carouselItems[index].classList.add('opacity-100');
+      dots[index].classList.add('active');
+      dots[index].classList.remove('bg-white/50');
+      dots[index].classList.add('bg-white');
+      
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      let next = currentSlide + 1;
+      if (next >= carouselItems.length) next = 0;
+      showSlide(next);
+    }
+
+    function prevSlide() {
+      let prev = currentSlide - 1;
+      if (prev < 0) prev = carouselItems.length - 1;
+      showSlide(prev);
+    }
+
+    // 初始化显示第一张幻灯片
+    showSlide(0);
+
+    // 设置自动轮播
+    function startSlideInterval() {
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    startSlideInterval();
+
+    // 按钮事件
+    prevButton.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      prevSlide();
+      startSlideInterval();
+    });
+
+    nextButton.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      nextSlide();
+      startSlideInterval();
+    });
+
+    // 指示器点击事件
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        showSlide(index);
+        startSlideInterval();
+      });
+    });
+
+    // 鼠标悬停暂停轮播
+    carousel.addEventListener('mouseenter', () => {
+      clearInterval(slideInterval);
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      startSlideInterval();
+    });
+
+    // 返回顶部按钮
+    const backToTopButton = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.remove('opacity-0', 'invisible');
+        backToTopButton.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopButton.classList.remove('opacity-100', 'visible');
+        backToTopButton.classList.add('opacity-0', 'invisible');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>    
